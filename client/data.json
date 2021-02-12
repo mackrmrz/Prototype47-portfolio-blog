@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Prototype 47",
+        "role": "Apprentise",
+        "description": "Voice over in my videos.",
+        "portfolio_images": "/images/fuzzy.jpeg"
+    },
+    {
+        "title": "Big Brother",
+        "role": "Clown",
+        "description": "Drifting on Forza",
+        "portfolio_image": "/images/bigbroother.jpeg"
+    },
+    {
+        "title": "Lost in the Game",
+        "role": "Drifter",
+        "description": "Attempting to win",
+        "portfolio_image": "/images/closeup.jpeg"
+    },
+    {
+        "title": "Big Brother",
+        "role": "Clown",
+        "description": "And todays guest is...",
+        "portfolio_image": "/images/room.jpeg"
+    },
+    {
+        "title": "Big Brother",
+        "role": "Clown",
+        "description": "Drifting on Forza",
+        "portfolio_image": "/images/talk-room.jpeg"
+    },
+    {
+        "title": "Happy Birthday",
+        "role": "Cake",
+        "description": "Fourtheenth birthday time to learn to drive",
+        "portfolio_image": "/images/cake14.jpeg"
+    }
+]
+
+
+[
+    {
+        "make": "Lamborghini",
+        "year": 2020,
+        "model": "Huracan",
+        "description": "The model RWD powered by 5.2 liter V-10 engine, this produces 610 horsepower, 413lb-ft of torque. This is a fan favorite",
+        "car_show": "This is the coolest car in the show",
+        "vehicle_image": "/images/profile/Lamborghini_Performante_Huracan_2019_Black.jpg",
+    },
+    {
+        "make": "Lamborghini",
+        "year": 2020,
+        "model": "Aventador",
+        "description": "This mid-engined naturally aspirated 6.5 liter V-12 engine will give 730 horsepower and 509 lb/ft of torque.",
+        "car_show": "This is the coolest car in the show",
+        "vehicle_image": "/images/profile/white-lamborghini.jpg"
+    },
+    {
+        "make": "Lamborghini",
+        "year": 2020,
+        "model": "Aventador SVJ Roadstar",
+        "description": "Another V-12 6.5 liter has all the latest tech, with 760hp. Zero to sixty in 2.8 sec. ",
+        "car_show": "This is the coolest car in the show",
+        "vehicle_image": "/images/profile/lamborghini-horizon.jpg"
+    }
+]
+

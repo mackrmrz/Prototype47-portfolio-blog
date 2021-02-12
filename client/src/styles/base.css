@@ -1,0 +1,41 @@
+:root {
+    --primary-color: rgba(204, 202, 204, 0.75);
+    --secondary-color: rgba(143, 66, 143);
+    --font-color: rgba(31, 25, 31);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color:  rgba(204, 202, 204, 0.75)!important;
+    color: var(--secondary-color) !important;
+    font-family: "Grandstander", cursive!important;
+}
+
+h1 h4 {
+    color: rgba(143, 66, 143)!important;
+}
+
+img {
+    object-fit: cover;
+    width: 400px;
+}
+
+.image{
+    background: url(/images/SmileyCayote.png) no-repeat center center/cover;
+    border: 4px solid var(--secondary-color);
+    border-radius: 50%;
+    margin: auto;
+    width: 355px;
+    height: 338px;
+}
+
+.car-collection-form {
+    padding: 15px 30px;
+}

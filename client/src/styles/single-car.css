@@ -1,0 +1,20 @@
+.cars-collection {
+
+}
+
+.single-car {
+    border: 1px solid var(--secondary-color);
+    padding-bottom: 20px;
+}
+
+/* hidden is the conditional statement of the delete function */
+
+.right-side {
+ /*  inside is the image */
+
+ height: 400px;
+}
+
+.left-side {
+
+}
