@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Button, Form, Col, Row } from 'react-bootstrap';
+import { Button, Form, Col, Row, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import DropzoneComponent from 'react-dropzone-component';
 
 import '../../../node_modules/dropzone/dist/min/dropzone.min.css';
 import '../../../node_modules/react-dropzone-component/styles/filepicker.css';
+
+
 
 
 class CarsForm extends Component {
@@ -16,14 +18,18 @@ class CarsForm extends Component {
             model: "",
             year: "",
             description: "",
-            vehicle_image: "",
-            secure_url: ''
+            vehicle_image: null,
+            secure_url: '',
+            msg: '',
+            car: []
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.carFormSubmit = this.carFormSubmit.bind(this);
         this.createForm = this.createForm.bind(this);
         this.uploadfile = this.uploadfile.bind(this);
+
+        this.vehicle_image = React.createRef();
     }
 
     uploadfile() {
@@ -42,7 +48,7 @@ class CarsForm extends Component {
     
     djsConfig(){
         return{
-            removeLinks: true,
+            addRemoveLinks: true,
             maxFiles: 1
         }
     }
@@ -56,47 +62,49 @@ class CarsForm extends Component {
         if (this.state.vehicle_image) {
             formData.append("vehicle_image", this.state.vehicle_image);
         }
-        debugger;
-        // return formData;
+        
+        return formData;
     }
-    
+
     handleChange(event){
-        console.log(event.target.value);
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
         });
     }
 
    
 //API SUBMIT 
-    carFormSubmit(event){
-        console.log(event);
-        this.createForm();
-        // const config = { 
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data' 
-        //     }
-        // }
-
-        // axios({
-        //     method: "POST",
-        //     url: "car-collection/adding-to-cloudinary",
-        //     // data: this.createForm()
-        // })
-        // .then(res => {
-        //     console.log("response from post", res.data);
-        // })
-        // .catch(err =>{
-        //     console.log("error from form post", err);
-        // })
-        event.preventDefault();
+    carFormSubmit(field){
+        let { history } = this.props;
+        axios({
+            method: "POST",
+            url: "car-collection/adding-to-cloudinary",
+            data: this.createForm(),
+            headers: { 'Content-Type' : 'multipart/form-data' }
+        })
+        .then(res => {
+            console.log("response from post", res.data);
+            this.setState({
+                make: '',
+                model: '',
+                year: '',
+                description: '',
+                msg: res.data.msg,
+                car: res.data.car
+            });
+            this.vehicle_image.ref.current.dropzone.removeAllFiles();
+            // history.push('/cars');
+        })
+        .catch(err =>{
+            console.log("error from form post", err);
+        })
+        field.preventDefault();
     }
 
-    // encType="mulipart/form-data"
     render(){
         return(
             <div className="car-collection-form ">
-                <form encType="multipart/form-data" onSubmit={this.carFormSubmit} className='form-wrapper form'>
+                <form onSubmit={this.carFormSubmit} className='form-wrapper form'>
                     <Row className='Form.Control-wrapper'>
                         <Col>
                             <Form.Label><h2>Make</h2></Form.Label>
@@ -114,7 +122,7 @@ class CarsForm extends Component {
                                 type='text'
                                 name='model'
                                 placeholder='Model'
-                                value={this.state.modal}
+                                value={this.state.model}
                                 onChange={this.handleChange}
                             />
                         </Col>
@@ -142,25 +150,25 @@ class CarsForm extends Component {
                                     onChange={this.handleChange}
                                 />
 
-                                <Form.Control
-                                    type='file'
-                                    name='vehicle_image'
-                                    placeholder='Upload Image'
-                                    value={this.state.vehicle_image}
-                                    onChange={this.handleChange}
-                                />
-                                {/* <DropzoneComponent
+                                <DropzoneComponent
+                                    ref={this.vehicle_image}
                                     config={this.componentConfig()}
                                     djsConfig={this.djsConfig()}
-                                    eventHandler={this.handleChange}
-                                    name='vehicle_image'
-                                /> */}
+                                    eventHandlers={this.uploadfile()}
+                                />
+                                
                             </Col>
                         </Form.Row>
                     <div className='car-collection-form__button col-12 text-center'>
                         <Button type='submit' >Submit</Button>
                     </div>
                 </form>
+
+                <div className='uploadShowing'>
+                    <Alert varient="success">
+                        <h2>{this.state.msg}</h2>
+                    </Alert>
+                </div>
             </div>
         )
     }

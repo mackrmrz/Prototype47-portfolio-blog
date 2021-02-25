@@ -9,12 +9,21 @@ class PortfolioGrid extends Component {
   componentDidMount() {
     this.props.getProjects();
   }
+
+
   render() {
     return (
-      <div className="list-of-projects grid">
-        {this.props.projects.map((item, key) => {
-          return <div className='list-of-projects__cards'><Project key={key} {...item} /></div>;
-        })}
+      <div className="list-of-projects grid container">
+          {/* snippets as title here */}
+        <div className="row align-items-center">
+          {this.props.projects.map((item, id) => {
+            return (
+              <div className="list-of-projects-card cards col-lg-4 col-md-6">
+                <Project key={id} {...item} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

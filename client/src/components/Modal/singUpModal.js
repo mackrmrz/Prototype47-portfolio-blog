@@ -36,7 +36,7 @@ class SignUpModal extends Component {
         
       };
 
-        const { modalState, escModal } = this.props;
+        const { modalState, escModal, } = this.props;
         return (
             <div className="sign-in-modal">
                 <ReactModal 
@@ -53,11 +53,12 @@ class SignUpModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { isLoading, user, token } = state.user;
+    const { isLoading, user, msg } = state.user;
     // const { error } = state.errors;
     return {
         isLoading,
-        user
+        user,
+        msg
     }
 }
 

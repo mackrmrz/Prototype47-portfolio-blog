@@ -8,18 +8,18 @@ const Showcase = () => {
     return(
         <div className='landing-page'>
             <header className="showcase">
-                <div className="container showcase-inner">
-                    <div className="about-container">
-                        <div className="image">
+                <div className="showcase-inner">
+                    <div className="about-container container">
+                        <div className="image img-fluid">
                         </div>
+                        <div className='ro'>
+                            <h2 className='col-sm-12'>Hi My Name is Javier Quesada</h2>
+                            <p className='text-align-center'>
+                               This is my story
+                            </p>
+                        </div>
+                        <Link to="/about"  className='btn'>Read More</Link>
                     </div>
-                    <h1>Hi My Name is Javier Quesada</h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Velit accusantium et nam, quibusdam ad dignissimos neque mollitia labore rerum tempora temporibus voluptas magni? 
-                        Magnam consectetur iusto hic ipsum neque fugiat.
-                    </p>
-                    <Link to="/about"  className='btn'>Read More</Link>
                 </div>
             </header>
             <PortfolioGrid/>

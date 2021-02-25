@@ -65,8 +65,8 @@ userRouter.post("/sign-in", (req, res) => {
         .exec()
         .then(user => {
             if (user.length < 1) {
-                return res.status(401).json({
-                    errorMsg: "Must fill all feilds."
+                return res.status(400).json({
+                    message: "Must fill all feilds."
                 });
             }
             bcrypt.compare(req.body.password, user[0].password, (err, result) => {

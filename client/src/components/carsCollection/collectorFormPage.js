@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class CollectorFormPage extends Component {
-    
-
-    
 
     render() {
         return (

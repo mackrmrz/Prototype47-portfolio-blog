@@ -10,7 +10,7 @@ class ContactEmail extends Component {
         return(
             <div className='contact-form container'>
                 {/* we need a form */}
-                <Form onSubmit={handleSubmit}>
+                <Form className='contact-form_form' onSubmit={handleSubmit}>
                     <Row>
                         <Col>
                             <Field 

@@ -1,0 +1,27 @@
+.footer{
+    background-color: #fff;
+    height: 100px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    padding: 10px 10px;
+
+}
+
+.social-media-icons a {
+    padding: 10px 10px;
+    font-size: 30px;
+    color: var(--secondary-color);
+
+}

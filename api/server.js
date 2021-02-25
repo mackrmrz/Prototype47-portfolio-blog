@@ -9,7 +9,6 @@ const fileUpload = require("express-fileupload");
 const portfolioRouter = require("./routes/portfolioRoute");
 const carRouter = require("./routes/carsRoute");
 const userRouter = require("./routes/userRouter");
-const imageRouter = require("./routes/images");
 const contactRouter = require("./routes/emailContact");
 
 require("dotenv").config();
@@ -37,7 +36,6 @@ connection.once('open', () => {
 app.use('/username', userRouter);
 app.use('/portfolio-items', portfolioRouter);
 app.use('/car-collection', carRouter);
-app.use('/images', imageRouter);
 app.use('/contact', contactRouter);
 
 app.listen(port, () => {

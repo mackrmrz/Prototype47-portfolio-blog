@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import { Form, Col, Row, Button } from "react-bootstrap";
 
 
@@ -55,28 +55,8 @@ export class TextArea extends Component {
 }
 
 
-// export class FileUploader extends Component{
-   
 
-//     onChange(e) {
-//         console.log('File Field Change', e.target.files[0]);
-//     }
-//     render(){
-//         const { className, title, type, placeholder, input, value } = this.props;
-//         return(
-//             <div className='form-helper'>
-//                 <Form.Label className='form-input__label'>
-//                     {title}
-//                 </Form.Label>
-//                 <Form.File
-//                     as="file" 
-//                     className={`${className}`} 
-//                     type={type} 
-//                     placeholder={placeholder}
-//                     {...input}
-//                     value={value}
-//                 />
-//             </div>
-//         )
-//     }
-// }
+//SEARCHING FOR A WAY TO SUBMIT FILES AND TEXT DATA\\\\
+
+
+

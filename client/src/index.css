@@ -12,6 +12,17 @@ code {
     monospace;
 }
 
+ h1,h2,h3,h4{
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+h5 h6 p{
+  font-family: 'Newsreader', serif;
+}
+
+
 
 
 @import "styles/base.css";
@@ -19,3 +30,6 @@ code {
 @import 'styles/showcase.css';
 @import 'styles/middle.css';
 @import 'styles/single-car.css';
+@import 'styles/footer.css';
+@import 'styles/forms.css';
+@import 'styles/about.css';

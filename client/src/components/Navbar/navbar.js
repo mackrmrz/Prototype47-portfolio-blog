@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import store from '../../store';
 import {
   Container,
   Navbar,
-  Nav,
-  Modal,
-  Form,
-  ModalBody,
-  Button
+  Nav
 } from 'react-bootstrap';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SignUpModal from '../Modal/singUpModal';
-import CollectorFormPage from '../carsCollection/collectorFormPage';
+
 
 const Navs = (props) => {
   const [toggleNav, setToggleNav] = useState(false);
@@ -100,13 +94,13 @@ const Navs = (props) => {
             authLinks('./collectorFormPage', 'Add a car')
           ) : (
             <Link to="/" onClick={toggleModal} className="login-link__login">
-              <h4>Login</h4>
+              <i className="fas fa-sign-in-alt"></i>
             </Link>
           )}
 
           <Navbar.Brand>
             {props.loggedInStatus === true ? (
-              <Link onClick={props.logOut}>Logout</Link>
+              <Link to='/' onClick={props.logOut}>Logout</Link>
             ) : (
               <div className="nav-brand brand">Prototype47</div>
             )}
@@ -122,5 +116,5 @@ const Navs = (props) => {
   );
 };
 
-// Navs = connect(null, actions)(Navs);
+
 export default Navs;

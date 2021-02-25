@@ -7,7 +7,8 @@ import {
 
 import {
     getCarCollection,
-    deleteCardById
+    deleteCardById,
+    increaseByOne,
 } from './collection';
 
 import {
@@ -28,6 +29,6 @@ export {
     sendEmail,
     errorMsg,
     removeError,
-    deleteCardById
-
+    deleteCardById,
+    increaseByOne
 }

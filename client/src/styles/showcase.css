@@ -1,9 +1,10 @@
 .container{
-    max-width: 960px;
+    /* max-width: 960px!important; */
     margin: auto;
     overflow: hidden;
     padding: 0 3rem;
 }
+
 
 .showcase{
     background-color: var(--primary-color);

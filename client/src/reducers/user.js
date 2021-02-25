@@ -14,7 +14,7 @@ const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isValidated: null,
     isLoading: false,
-    message: null
+    msg: ''
 }
 
 
@@ -42,7 +42,7 @@ export default function(state = INITIAL_STATE, action) {
                 ...action.payload,
                 isValidated: true,
                 isLoading: false,
-                message: ''
+                msg: ''
             }
         case AUTH_ERR:
         case LOGOUT_SUCCESSFUL:
@@ -53,7 +53,8 @@ export default function(state = INITIAL_STATE, action) {
                 isValidated: null,
                 isLoading: false,
                 user: null,
-                token: null
+                token: null,
+                msg: ''
             }
         default: 
             return state;

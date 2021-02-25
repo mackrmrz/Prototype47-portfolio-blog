@@ -54,11 +54,10 @@ export const loginUser = ({ email, password }) => (dispatch) => {
       })
     )
     .catch((err) => {
-      // dispatch(errorMsg(err.res.data, err.res.status, 'FAIL_TO_LOGIN')
-      // );
-      console.log(err);
+     
       dispatch({
-        type: LOGIN_FAIL
+        type: LOGIN_FAIL,
+        msg: "LOGIN FAILED"
       });
     });
 };

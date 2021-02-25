@@ -1,0 +1,21 @@
+.about-me{
+    /* background-color: #20639B; */
+    padding: 20px 20px;
+    height: 90vh;
+    /* height: 100%; */
+}
+
+
+.jumbotron {
+    background-color: #fff!important;
+}
+
+.card {
+    background-color: #fff;
+    margin: 0;
+}
+
+.image-side-static{
+    /* padding-top: 30px; */
+}
+
