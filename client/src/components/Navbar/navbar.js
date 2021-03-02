@@ -85,7 +85,7 @@ const Navs = (props) => {
                 activeClassName="item"
                 className='link'
               >
-                <h4>Blog</h4>
+                <h4>Collection</h4>
               </NavLink>
             </Nav>
           </Navbar.Collapse>

@@ -41,7 +41,7 @@ class EmailForm extends Component {
             <Form.Control
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Your Email"
             ></Form.Control>
           </Form.Group>
           <Form.Group>

@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import { Link } from 'react-router-dom';
 
 import Car from './singleCar';
-import CarsForm from './collectorForm';
+
 
 class CarsCollector extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class CarsCollector extends Component {
   initiatingScroll() {
     window.onscroll = () => {
       if (
-        // this.props.isLoading ||
+        this.props.isLoading ||
         parseInt(this.props.current_page) === this.props.total_pages +1
       ) {
         return;
@@ -40,8 +40,7 @@ class CarsCollector extends Component {
     this.props.getCarCollection();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log('NEXT STATE', prevState, prevProps);
+  componentDidUpdate(prevProps, prevState) {;
     if (prevProps.car_collection._id !== this.props.car_collection._id) {
       return true;
     }

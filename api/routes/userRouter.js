@@ -33,16 +33,16 @@ userRouter.post("/create-user", (req, res) => {
                         });
                     } else {
                         const user = new User({
-                            // user_id: new mongoose.Schema.Types.ObjectId(),
                             first_name: req.body.first_name,
                             email: req.body.email,
                             password: hash
                         });
                         user.save()
                             .then(results => {
-                                console.log("Here is what i Created", results)
                                 res.status(201).json({
-                                    message: "SignUp Created"
+                                    message: "SignUp Created",
+                                    first_name: results.first_name,
+                                    email: results.email
                                 })
                             })
                             .catch(err => {
