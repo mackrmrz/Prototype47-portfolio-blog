@@ -9,21 +9,43 @@
     color: rgba(196, 3, 196, 0.226)!important;
     text-decoration: none;
 }
-/* .nav-links {
-    /* padding: 15px 5px; */
-    /* white-space: nowrap; */
-/* }  */
 
 .nav-links a{
     text-decoration: none;
     padding-left: 3px;
 }
 
-.link{
+.link {
     padding: 20px 20px;
+    color: var(--secondary-color);
 }
 
-.item{
+.item:hover,
+.link:hover {
     text-decoration: none;
+    color: black;
     /* display:none; */
+}
+
+.portfolio-manager{
+    color: var(--secondary-color);
+    padding: 3px 3px;
+}
+
+.login-link-login {
+    padding: 10px 10px;
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.logout-link{
+    padding: 10px 10px;
+    font-size: 30px;
+    color: var(--secondary-color);
+}
+
+
+.login-link-login:hover,
+.logout-link:hover{
+    color: var(--secondary-color);
 }

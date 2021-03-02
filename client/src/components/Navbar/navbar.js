@@ -93,14 +93,16 @@ const Navs = (props) => {
           {props.loggedInStatus === true ? (
             authLinks('./collectorFormPage', 'Add a car')
           ) : (
-            <Link to="/" onClick={toggleModal} className="login-link__login">
+            <Link to="/" onClick={toggleModal} className="login-link-login">
               <i className="fas fa-sign-in-alt"></i>
             </Link>
           )}
 
           <Navbar.Brand>
             {props.loggedInStatus === true ? (
-              <Link to='/' onClick={props.logOut}>Logout</Link>
+              <Link to='/' className='logout-link' onClick={props.logOut}>
+                <i className="logout fas fa-sign-out-alt"></i>
+              </Link>
             ) : (
               <div className="nav-brand brand">Prototype47</div>
             )}

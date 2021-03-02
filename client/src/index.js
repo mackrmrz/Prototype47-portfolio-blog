@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import axios from "axios";
@@ -13,9 +13,9 @@ axios.defaults.headers.common[ 'Authorization'] = 'Bearer' + localStorage.getIte
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter history={history}>
+      <Router history={history}>
         <App />
-      </BrowserRouter>
+      </Router>
     </Provider>
   </React.StrictMode>,
 

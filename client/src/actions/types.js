@@ -4,11 +4,6 @@ export const REMOVE_VEHICLE_CARD = 'REMOVE_VEHICLE_CARD';
 export const INCREASE_BY_ONE = 'INCREASE_BY_ONE';
 
 
-//CONTACT PAGE 
-export const EMAIL_ACTION = 'EMAIL_ACTION';
-export const SEND_EMAIL = 'SEND_EMAIL';
-
-
 //AUTH
 export const USER_LOADED = 'USER_LOADED';
 export const USER_LOADING = 'USER_LOADING';

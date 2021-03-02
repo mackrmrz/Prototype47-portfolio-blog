@@ -18,7 +18,7 @@ class CarsCollector extends Component {
   initiatingScroll() {
     window.onscroll = () => {
       if (
-        this.props.isLoading ||
+        // this.props.isLoading ||
         parseInt(this.props.current_page) === this.props.total_pages +1
       ) {
         return;
@@ -48,11 +48,13 @@ class CarsCollector extends Component {
     return false;
   }
 
+
   deleteCard(_id) {
     this.props.deleteCardById(_id);
   }
 
   render() {
+    
     return (
       <div className="cars-collection container">
         <h1 className="header">Lambo Collection</h1>

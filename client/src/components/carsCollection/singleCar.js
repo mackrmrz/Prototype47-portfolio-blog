@@ -34,14 +34,7 @@ class Car extends Component {
                 }}
                 className="remove-icon"
               >
-                <i className="delet-icon fas fa-trash-alt"></i>
-              </a>
-              <a
-                onClick={() => {
-                  this.props.editCards(`${_id}`);
-                }}
-              >
-                <i className="delet-icon far fa-edit"></i>
+                <i className="delete-icon fas fa-trash-alt"></i>
               </a>
             </div>
           ) : null}

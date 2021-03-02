@@ -6,11 +6,7 @@
 
 .single-car {
     border: 1px solid var(--secondary-color);
-    /* padding-bottom: 20px; */
     margin-bottom: 20px;
-    /* -moz-box-shadow:    inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;  */
     background-color: white;
 	border-radius: 1px;
 	box-shadow: 0 0 2px -1px rgba(0, 0, 0, 0.75);
@@ -30,7 +26,6 @@
     box-shadow:         inset 0 0 10px #000000;
 
 }
-
 /* hidden is the conditional statement of the delete function */
 
 .right-side {
@@ -63,13 +58,16 @@
 	display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 13px 7px;
-    font-size: 20px
+    padding-bottom: 20px;
+    font-size: 20px;
+	margin-top: -20px;
 }
-
-
 
 .delete-icon  {
 	font-weight: 600;
 	color: var(--secondary-color)!important;
+}
+
+.delete-icon:hover{
+	color: black;
 }

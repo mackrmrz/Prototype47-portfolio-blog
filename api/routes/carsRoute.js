@@ -1,5 +1,6 @@
 const carRouter = require('express').Router();
 const Cars = require('../models/cars');
+const auth  = require('../middleware/auth');
 const path = require('path');
 const { cloudinary } = require('../utils/uploadConfig');
 
@@ -30,7 +31,8 @@ carRouter.get('/', async (req, res) => {
 
 //TRY CATCH ASYNC AND AWAIT
 
-carRouter.post('/adding-to-cloudinary', async (req, res) => {
+carRouter.post('/adding-to-cloudinary', auth, async (req, res) => {
+  console.log("Router checking for token", auth);
   const file = req.files.vehicle_image;
   try {
     const cloud = await cloudinary.uploader.upload(file.tempFilePath);
@@ -65,7 +67,7 @@ carRouter.post('/adding-to-cloudinary', async (req, res) => {
   }
 });
 
-carRouter.delete('/delete-one/:id', (req, res) => {
+carRouter.delete('/delete-one/:id', auth, (req, res) => {
   Cars.findOneAndDelete(req.params.id)
     .then((item) =>
       item.remove().then(() =>
@@ -82,7 +84,7 @@ carRouter.post('/form-tester', (req, res) => {
   console.log('Posting a file', req.files);
 });
 
-carRouter.delete('/', (req, res) => {
+carRouter.delete('/', auth, (req, res) => {
   Cars.deleteMany()
     .then((gone) =>
       gone.remove().then(() =>

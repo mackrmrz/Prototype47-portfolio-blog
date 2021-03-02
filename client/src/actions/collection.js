@@ -32,6 +32,9 @@ export const increaseByOne = (counting) => {
        
 }
 
+
+// UPDATING CARD
+
 // REMOVING CARD BY ID
 export const deleteCardById = (_id) => {
     console.log("Id in Actions", _id);

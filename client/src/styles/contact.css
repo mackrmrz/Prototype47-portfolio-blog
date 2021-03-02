@@ -1,0 +1,36 @@
+.contact-me {
+  padding: 20px 20px;
+  /* height: 90vh; */
+}
+
+.jumbotron {
+  background-color: #fff !important;
+  padding: 8rem 2rem !important;
+}
+
+.contact-link-list {
+  font-size: 23px;
+}
+
+.contact-link .items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.contact-link i h5 {
+  padding-left: 20px;
+  display: inline;
+}
+
+.contact-link i:hover {
+  color: red;
+  
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.email-form {
+  padding: 10px 10px;
+  background-color: #a57ca73c;
+}

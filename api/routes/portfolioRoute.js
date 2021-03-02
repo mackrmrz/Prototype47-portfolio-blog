@@ -10,7 +10,7 @@ projectRouter.get('/', (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-projectRouter.post('/adding-project', async (req, res) => {
+projectRouter.post('/adding-project', auth, async (req, res) => {
   const file = req.files.project_image;
   try {
     const cloud = await cloudinary.uploader.upload(file.tempFilePath, {
@@ -44,7 +44,7 @@ projectRouter.post('/adding-project', async (req, res) => {
 
 //still have to add the route to serverjs.
 
-projectRouter.delete('/delete-one/:id', (req, res) => {
+projectRouter.delete('/delete-one/:id', auth, (req, res) => {
   Project.findOneAndDelete(req.params.id)
     .then((item) =>
       item.remove().then(() =>

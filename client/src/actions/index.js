@@ -16,17 +16,12 @@ import {
     removeError
 } from './errorMsg';
 
-import {
-    sendEmail
-} from "./contact";
-
 export {
     logout,
     loginUser,
     userLoad,
     getProjects,
     getCarCollection,
-    sendEmail,
     errorMsg,
     removeError,
     deleteCardById,

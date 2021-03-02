@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
-const user = require("../models/user");
+
 
 userRouter.get("/", auth, async (req, res) => {
     await User.find()

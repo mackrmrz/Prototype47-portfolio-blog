@@ -25,3 +25,11 @@ footer {
     color: var(--secondary-color);
 
 }
+
+
+.social-media-icons a:hover {
+    padding: 10px 10px;
+    font-size: 30px;
+    color: var(--secondary-color);
+
+}
