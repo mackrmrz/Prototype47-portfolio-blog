@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
+const path = require('path');
 
 //ADDING THE ROUTES
 const portfolioRouter = require("./routes/portfolioRoute");

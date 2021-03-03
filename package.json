@@ -1,0 +1,20 @@
+{
+  "name": "prototype99",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mackrmrz/Prototype47-portfolio-blog.git"
+  },
+  "keywords": [],
+  "author": "Mack Ramirez <mack.n.ramirez@gmail.com> (https://www.npmjs.com/~mackrmrz)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mackrmrz/Prototype47-portfolio-blog/issues"
+  },
+  "homepage": "https://github.com/mackrmrz/Prototype47-portfolio-blog#readme"
+}
