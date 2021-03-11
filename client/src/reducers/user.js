@@ -26,7 +26,6 @@ export default function(state = INITIAL_STATE, action) {
                 isLoading: true
             };
         case USER_LOADED:
-            console.log(action.payload);
             const user  = action.payload;
             return{
                 ...state,
@@ -35,7 +34,6 @@ export default function(state = INITIAL_STATE, action) {
                 user
             }
         case LOGIN_SUCCESSFUL:
-            console.log( "LoggedIN", action.payload);
             localStorage.setItem(JSON.stringify('token'), action.payload.token);
             return{
                 ...state,
@@ -54,7 +52,7 @@ export default function(state = INITIAL_STATE, action) {
                 isLoading: false,
                 user: null,
                 token: null,
-                msg: ''
+                msg: action.msg
             }
         default: 
             return state;

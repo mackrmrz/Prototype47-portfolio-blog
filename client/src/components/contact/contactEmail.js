@@ -3,6 +3,16 @@ import emailjs from 'emailjs-com';
 import { Button, Form, Col, Row, Alert } from 'react-bootstrap';
 
 class EmailForm extends Component {
+  constructor(){
+    super();
+    this.state = {
+      msg: '',
+      varient: ''
+    }
+
+    this.handleEmail = this.handleEmail.bind(this);
+
+  }
   handleEmail(e) {
     e.preventDefault();
     emailjs
@@ -15,10 +25,16 @@ class EmailForm extends Component {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          this.setState({
+            msg: result.text,
+            varient: 'success'
+          })
         },
         (error) => {
-          console.log(error.text);
+          this.setState({
+            msg: error.result,
+            varient: 'danger'
+          })
         }
       );
     e.target.reset();
@@ -27,6 +43,7 @@ class EmailForm extends Component {
   render() {
     return (
       <div className="container email-form">
+        <Alert className='email-alert' varient={this.state.varient}>{this.state.msg}</Alert>
         <form className="form" onSubmit={this.handleEmail}>
           <Form.Group>
             <Form.Label>Name</Form.Label>

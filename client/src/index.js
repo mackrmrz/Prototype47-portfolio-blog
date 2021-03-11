@@ -5,11 +5,13 @@ import store from './store';
 import { Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import axios from "axios";
+import axios from 'axios';
 import history from './history';
 
-axios.defaults.baseURL="https://jqr-collection-portfolio-api.herokuapp.com";
-axios.defaults.headers.common[ 'Authorization'] = 'Bearer' + localStorage.getItem('token');
+axios.defaults.baseURL = 'https://jqr-collection-portfolio-api.herokuapp.com';
+axios.defaults.headers.common['Authorization'] =
+  'Bearer' + ' ' + localStorage.getItem(JSON.stringify('token'));
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -19,7 +21,5 @@ ReactDOM.render(
     </Provider>
   </React.StrictMode>,
 
-
   document.getElementById('root')
 );
-

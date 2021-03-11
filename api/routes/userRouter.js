@@ -7,11 +7,20 @@ const User = require("../models/user");
 
 
 userRouter.get("/", auth, async (req, res) => {
-    await User.find()
-    .then(user => res.status(200).json({
-        user: user
-    }))
-    .catch(err => res.status(404).json("err", err))
+    try{
+        await User.find()
+        .then(user => res.status(200).json({
+            user: user
+        }))
+        .catch(err => res.status(404).json({
+            ERROR: err
+        }))
+
+    } catch (err) {
+        res.status(400).json({
+            ERROR: err
+        })
+    }
 });
 
 userRouter.post("/create-user", (req, res) => {
@@ -104,7 +113,9 @@ userRouter.delete("/", (req, res) => {//also auth at some point
         .then(gone => gone.remove().then(() => res.json({
             msg: " All are removed"
         })))
-        .catch(err => res.status(400).json(err))
+        .catch(err => res.status(400).json({
+            ERROR: err
+        }))
 });
 
 

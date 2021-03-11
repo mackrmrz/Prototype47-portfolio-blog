@@ -13,7 +13,7 @@ class ContactPage extends Component {
         <div className="jumbotron">
           <div className="row">
             <div className="image-side-static col">
-              <img className="img-fluid" src="/images/profile/contactPage.jpg" />
+              <img className="img-fluid" src="/images/profile/contactPage.jpg" alt= 'here' />
             </div>
   
             <div className="description col-md-6 card-body">

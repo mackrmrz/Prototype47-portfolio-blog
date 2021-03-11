@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Form, Col, Row, Alert } from 'react-bootstrap';
-import { connect } from 'react-redux';
 import axios from 'axios';
 import DropzoneComponent from 'react-dropzone-component';
 
@@ -78,7 +77,6 @@ class CarsForm extends Component {
       method: 'POST',
       url: 'car-collection/adding-to-cloudinary',
       data: this.createForm(),
-      // headers: { 'Content-Type' : 'multipart/form-data'}
       headers: {
         'Content-Type': 'multipart/form-data',
         'Accept': 'application/json',
@@ -94,11 +92,13 @@ class CarsForm extends Component {
           msg: res.data.msg,
           car: res.data.car
         });
-        this.vehicle_image.ref.current.dropzone.removeAllFiles();
-        this.props.history.push("/");
+        this.vehicle_image.current.dropzone.removeAllFiles();
+        // () => this.props.history.push("/");//CHECK BACK AGFTER PUSHING 
       })
       .catch((err) => {
-        console.log('error from form post', err);
+        this.setState({
+          msg: `${err}`
+        })
       });
     field.preventDefault();
   }

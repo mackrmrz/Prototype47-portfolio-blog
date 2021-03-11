@@ -1,6 +1,6 @@
 const carRouter = require('express').Router();
 const Cars = require('../models/cars');
-const auth  = require('../middleware/auth');
+const auth = require('../middleware/auth');
 const path = require('path');
 const { cloudinary } = require('../utils/uploadConfig');
 
@@ -10,7 +10,7 @@ const { cloudinary } = require('../utils/uploadConfig');
 
 carRouter.get('/', async (req, res) => {
   try {
-    const { page= 1, limit= 3 } = req.query;
+    const { page = 1, limit = 3 } = req.query;
     const cars = await Cars.find()
       .limit(limit * 1)
       .skip((page - 1) * limit)
@@ -23,16 +23,17 @@ carRouter.get('/', async (req, res) => {
         current_page: page,
         total_pages: Math.ceil(count / limit)
       }
-    })
+    });
   } catch (error) {
-    console.log("ERROR", error);
+    res.status(500).json({
+      ERROR: error
+    });
   }
 });
 
 //TRY CATCH ASYNC AND AWAIT
 
 carRouter.post('/adding-to-cloudinary', auth, async (req, res) => {
-  console.log("Router checking for token", auth);
   const file = req.files.vehicle_image;
   try {
     const cloud = await cloudinary.uploader.upload(file.tempFilePath);
@@ -59,8 +60,7 @@ carRouter.post('/adding-to-cloudinary', auth, async (req, res) => {
         })
       );
   } catch (error) {
-    // console.log("Error in the cloud function", error);
-    res.status(400).json({
+    res.status(600).json({
       msg: 'Bad Request',
       Error: error
     });
@@ -68,20 +68,17 @@ carRouter.post('/adding-to-cloudinary', auth, async (req, res) => {
 });
 
 carRouter.delete('/delete-one/:id', auth, (req, res) => {
-  Cars.findOneAndDelete(req.params.id)
+  Cars.deleteOne({ _id: req.params.id })
     .then((item) =>
-      item.remove().then(() =>
-        res.json({
-          msg: 'Vehicle removed'
-        })
-      )
+      res.json({
+        msg: 'Vehicle removed'
+      })
     )
-    .catch((err) => res.status(400).json(err));
-});
-
-carRouter.post('/form-tester', (req, res) => {
-  console.log('Posting to form text', req.body);
-  console.log('Posting a file', req.files);
+    .catch((err) =>
+      res.status(400).json({
+        ERROR: `${err}`
+      })
+    );
 });
 
 carRouter.delete('/', auth, (req, res) => {
@@ -93,7 +90,11 @@ carRouter.delete('/', auth, (req, res) => {
         })
       )
     )
-    .catch((err) => res.status(400).json(err));
+    .catch((err) =>
+      res.status(400).json({
+        ERROR: err
+      })
+    );
 });
 
 module.exports = carRouter;

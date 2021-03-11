@@ -1,16 +1,21 @@
-import { GET_PROJECTS } from "../actions/types";
+import { ERROR_MSG, GET_PROJECTS } from "../actions/types";
 
 const INITIAL_STATE = {
-    projects: []
+    projects: [],
+    error_msg: ''
 }
 
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
         case GET_PROJECTS:
-            console.log(action.payload);
             return{
                 ...state,
-                projects: action.payload
+                projects: action.payload.response
+            }
+        case ERROR_MSG:
+            return{
+                ...state,
+                error_msg: action.payload
             }
         default: return state;
     }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-
 import Project from './projectItem';
 
 class PortfolioGrid extends Component {
@@ -14,7 +12,6 @@ class PortfolioGrid extends Component {
   render() {
     return (
       <div className="list-of-projects grid container">
-          {/* snippets as title here */}
         <div className="row align-items-center">
           {this.props.projects.map((item, id) => {
             return (

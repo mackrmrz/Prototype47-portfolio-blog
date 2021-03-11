@@ -13,7 +13,6 @@ ReactModal.setAppElement("#root")
 class SignUpModal extends Component {
 
     modalSubmit = (credentials) => {
-        console.log('This is the modal', credentials);
         this.props.loginUser(credentials);
         this.props.close();
     }
@@ -54,7 +53,6 @@ class SignUpModal extends Component {
 
 const mapStateToProps = (state) => {
     const { isLoading, user, msg } = state.user;
-    // const { error } = state.errors;
     return {
         isLoading,
         user,

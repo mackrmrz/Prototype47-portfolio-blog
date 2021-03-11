@@ -13,6 +13,7 @@ class CarsCollector extends Component {
 
     this.initiatingScroll();
   }
+  
 
   // ADDED PAGINATED API AND INFINITE SCROLL FEATURE
   initiatingScroll() {
@@ -56,7 +57,7 @@ class CarsCollector extends Component {
     
     return (
       <div className="cars-collection container">
-        <h1 className="header">Lambo Collection</h1>
+        <h1 className="header">Collection</h1>
         <div className=" container ">
           {this.props.car_collection.map((car, index) => {
             return (

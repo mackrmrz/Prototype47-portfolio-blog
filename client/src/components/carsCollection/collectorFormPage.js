@@ -3,10 +3,15 @@ import CarsForm from './collectorForm';
 
 class CollectorFormPage extends Component {
 
+
+    submittingCar(e) {
+        console.log(e);
+    }
+
     render() {
         return (
             <div>
-                <CarsForm />
+                <CarsForm updateCar={this.submittingCar}/>
             </div>
         )
     }

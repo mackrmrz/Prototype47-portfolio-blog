@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
         case TOGGLE_MODAL:
-            console.log(action.payload);
             return{
                 ...state,
                 projects: action.payload

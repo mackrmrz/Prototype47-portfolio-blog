@@ -1,9 +1,8 @@
-import { GETTING_COLLECTION, REMOVE_VEHICLE_CARD, INCREASE_BY_ONE } from './types';
+import { GETTING_COLLECTION, REMOVE_VEHICLE_CARD, INCREASE_BY_ONE, ERROR_MSG } from './types';
 
 import axios from 'axios';
 
 export function getCarCollection() {
-    console.log("looking for state");
     return function(dispatch) {
         axios.get(`car-collection`)
             .then(res => {
@@ -18,7 +17,8 @@ export function getCarCollection() {
 }
 
 
-export const increaseByOne = (counting) => {
+export const increaseByOne = (counting) =>{
+    
     return (dispatch) => {
         axios.get(`car-collection?page=${counting}`)
             .then(res => {
@@ -37,15 +37,27 @@ export const increaseByOne = (counting) => {
 
 // REMOVING CARD BY ID
 export const deleteCardById = (_id) => {
-    console.log("Id in Actions", _id);
+    const token = localStorage.getItem(JSON.stringify('token'));
+    const config = {
+        headers: {
+            // 'Accept': 'application/json',
+            'Authorization': 'Bearer' + ' ' + `${token}`
+          }
+    }
     return (dispatch) => {
-        axios.delete(`car-collection/delete-one/:${_id}`)
+        axios.delete(`car-collection/delete-one/${_id}`, config)
             .then( res => {
                 dispatch({
                     type: REMOVE_VEHICLE_CARD,
-                    payload: _id
+                    payload: _id,
+                    msg: res.data.msg
                 })
             })
-            .catch( error => console.log("ERROR", error))
+            .catch( (error) => {
+                dispatch({
+                    type: ERROR_MSG,
+                    payload: error.response ? error.response.data : 'No Connection'
+                })
+            })
     }
 }

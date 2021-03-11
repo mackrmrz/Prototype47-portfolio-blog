@@ -1,4 +1,4 @@
-import { GET_PROJECTS } from './types';
+import { ERROR_MSG, GET_PROJECTS } from './types';
 
 import axios from 'axios';
 
@@ -10,6 +10,12 @@ export default function getProjects() {
                 dispatch({
                     type: GET_PROJECTS,
                     payload: res.data
+                })
+            })
+            .catch(err => {
+                dispatch({
+                    type: ERROR_MSG,
+                    payload: err
                 })
             })
     }

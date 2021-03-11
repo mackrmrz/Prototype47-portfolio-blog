@@ -32,6 +32,11 @@
     padding: 3px 3px;
 }
 
+.portfolio-manager:hover{
+    color: gold;
+    font-size: 600;
+}
+
 .login-link-login {
     padding: 10px 10px;
     font-size: 20px;

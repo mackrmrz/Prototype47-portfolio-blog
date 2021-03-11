@@ -11,7 +11,7 @@ const AboutMe = (props) => {
         <div className="row">
           <div className="image-side-static col-md-6">
             {/* <video src='/images/logo/about-me-gaming.mp4' className="video-player" muted autoPlay loop/> */}
-            <img className="card-img" src="/images/profile/about-me.jpg" />
+            <img className="card-img" src="/images/profile/about-me.jpg" alt='picture here' />
           </div>
 
           <div className="description col-md-6 card-body">

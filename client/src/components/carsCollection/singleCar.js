@@ -22,15 +22,15 @@ class Car extends Component {
 
     return (
       <div className="single-car row">
-        <div className="right-side col-sm-6 col-xs-4">
+        <div className="left-side col-4 col-6">
           <div className="vehicle-image" style={backgroundBlock}></div>
         </div>
-        <div className="left-side container col-sm-4">
+        <div className="right-side container col-4 col-4">
           {loggedInStatus === true ? (
             <div className='card-icons'>
               <a
                 onClick={() => {
-                  this.props.removeCards(`{${_id}}`);
+                  this.props.removeCards(_id);
                 }}
                 className="remove-icon"
               >

@@ -3,14 +3,21 @@ const Project = require('../models/portfolioItems');
 const auth = require('../middleware/auth');
 const { cloudinary } = require('../utils/uploadConfig');
 
-projectRouter.get('/', (req, res) => {
-  Project.find()
-    // .select(" description")
-    .then((items) => res.status(200).json(items))
-    .catch((err) => res.status(400).json(err));
+projectRouter.get('/', (req, res, next) => {
+  Project.find((err, items) => {
+    if (err){
+      res.status(401).json({
+        msg: err
+      })
+    }else{
+      res.status(200).json({
+        response: items
+      })
+    }
+  })
 });
 
-projectRouter.post('/adding-project', auth, async (req, res) => {
+projectRouter.post('/adding-project', async (req, res, next) => {
   const file = req.files.project_image;
   try {
     const cloud = await cloudinary.uploader.upload(file.tempFilePath, {
@@ -38,31 +45,40 @@ projectRouter.post('/adding-project', auth, async (req, res) => {
         })
       );
   } catch (error) {
-    console.log('ERROR IN CATCH', error);
+    res.status(400).json({
+      ERROR: error
+    });
   }
 });
 
 //still have to add the route to serverjs.
 
-projectRouter.delete('/delete-one/:id', auth, (req, res) => {
-  Project.findOneAndDelete(req.params.id)
+projectRouter.delete('/delete-one/:id', (req, res) => {
+  Project.deleteOne({ _id: req.params.id })
     .then((item) =>
-      item.remove().then(() =>
-        res.json({
-          msg: 'project removed'
-        })
-      )
+      res.json({
+        msg: 'Project removed'
+      })
     )
-    .catch((err) => res.status(400).json(err));
+    .catch((err) =>
+      res.status(400).json({
+        ERROR: `${err}`
+      })
+    );
 });
 
-projectRouter.delete('/delete-all', (req, res) => {
+projectRouter.delete('/delete-all', auth, (req, res, next) => {
   Project.deleteMany({})
     .then((removed) =>
       res.json({
-        msg: ' All are removed'
+        msg: ' All are removed',
+        deletedItem: removed
       })
     )
-    .catch((err) => res.status(400).json(err));
+    .catch((err) => res.status(400).json({
+      ERROR: err
+    }));
 });
+
+
 module.exports = projectRouter;

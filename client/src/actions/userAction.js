@@ -8,9 +8,7 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESSFUL,
   AUTH_ERR,
-  LOGOUT_SUCCESSFUL,
-  REGISTER_SUCCESSFUL,
-  REGISTER_FAIL
+  LOGOUT_SUCCESSFUL
 } from './types';
 
 export const userLoad = () => (dispatch, fromState) => {
@@ -43,7 +41,7 @@ export const loginUser = ({ email, password }) => (dispatch) => {
 
   //Request body
   const body = JSON.stringify({ email, password });
-
+  
   axios
     .post('username/sign-in', body, config)
     // console.log("action call", res.data);
@@ -54,10 +52,9 @@ export const loginUser = ({ email, password }) => (dispatch) => {
       })
     )
     .catch((err) => {
-     
       dispatch({
         type: LOGIN_FAIL,
-        msg: "LOGIN FAILED"
+        msg: err.response ? err.response.data : "LOGIN FAILED"
       });
     });
 };

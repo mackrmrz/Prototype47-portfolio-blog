@@ -28,7 +28,7 @@
 }
 /* hidden is the conditional statement of the delete function */
 
-.right-side {
+.left-side {
 	width: 400px;
 	height: 100%;
 	padding: 0 !important;
@@ -43,7 +43,7 @@
 	margin: 25px auto
 }
 
-.single-car .left-side {
+.single-car .right-side {
 	height: 100%;
 	padding: 30px 20px;
 	width: 100%;

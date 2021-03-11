@@ -17,14 +17,6 @@ const Navs = (props) => {
   const toggleModal = () => setModal(!modal);
   const closeModal = () => setModal(false);
 
-  const setNavExpanded = (expanded) => {
-    setToggleNav(expanded);
-  };
-
-  const closeNav = () => {
-    setToggleNav(false);
-  };
-
   //Hidden Links
   const authLinks = (route, title) => {
     return <NavLink to={route} className='portfolio-manager'>{title}</NavLink>;

@@ -1,5 +1,2 @@
 .env
 node_modules
-utils
-uploadConfig.js
-upload
